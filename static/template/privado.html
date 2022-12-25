@@ -56,7 +56,7 @@
             <!-- Utiliza la clase box de Bulma para crear una caja con estilo predefinido -->
             <div class="box">
               <h3 class="title is-5">{{ video }}</h3>
-              <video src="/static/videos/{{ video }}" controls class="image is-16by9"></video>
+              <video src="/static/videosPrivados/{{ video }}" controls class="image is-16by9"></video>
             </div>
           </div>
         {% endfor %}
@@ -77,16 +77,14 @@
 	  });
 	});
     </script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('h3').forEach(function(h3) {
-    h3.textContent = h3.textContent.replace(/_/g, ' ');
-    h3.textContent = h3.textContent.replace(/(\.mp4|\.mkv|\.webm)$/g, '');
-  });
-});
-</script>
-
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          document.querySelectorAll('h3').forEach(function(h3) {
+            h3.textContent = h3.textContent.replace(/_/g, ' ');
+            h3.textContent = h3.textContent.replace(/(\.mp4|\.mkv|\.webm)$/g, '');
+          });
+        });
+    </script>
   </body>
 </html>
 

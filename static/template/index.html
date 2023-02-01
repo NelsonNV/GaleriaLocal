@@ -48,15 +48,29 @@
     </nav>
     <!-- Utiliza la clase container de Bulma para darle un ancho fijo y centrar la página -->
     <div class="container">
+      <div class="box is-full">
+        <div class="notification">
+          <video src="" controls id="videoCentral"></video>
+        </div>
+      </div>
       <!-- Utiliza la clase columns de Bulma para crear una estructura de grilla -->
       <div class="columns is-multiline is-flex">
+       
         {% for video in videos %}
+        {% set index = loop.index0 %}
+
           <!-- Utiliza la clase column de Bulma para dividir la grilla en columnas -->
           <div class="column is-one-third">
             <!-- Utiliza la clase box de Bulma para crear una caja con estilo predefinido -->
             <div class="box">
               <h3 class="title is-5">{{ video }}</h3>
-              <video src="/static/videos/{{ video }}" controls class="image is-16by9"></video>
+              <video class="image is-16by9" id="{{ index }}">
+                <source src="/static/videos/{{ video }}" id="url-video-{{ index }}">
+              </video>
+              <div class="buttons">
+                <button class="button is-info" onclick="playPause('{{ index }}')">Iniciar/pausar</button>
+                <button class="button is-danger" onclick="fnVideoPrincipal('url-video-{{ index }}')">Principal</button>
+              </div>
             </div>
           </div>
         {% endfor %}
@@ -84,6 +98,20 @@ document.addEventListener('DOMContentLoaded', function() {
     h3.textContent = h3.textContent.replace(/(\.mp4|\.mkv|\.webm)$/g, '');
   });
 });
+function playPause(index) { 
+  var myVideo = document.getElementById(index); 
+    if (myVideo.paused) 
+      myVideo.play(); 
+    else 
+      myVideo.pause(); 
+  } 
+  function fnVideoPrincipal(id) {
+  let video = document.getElementById(id);
+  let videoCentral = document.getElementById('videoCentral');
+  videoCentral.src = video.src;
+  videoCentral.alt = "videocentral";
+}
+  
 </script>
 
 

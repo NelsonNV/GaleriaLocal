@@ -10,6 +10,20 @@ Nesesitas instalar python3 y flask para que puedas utilizar el programa
 
 si estas en windows puedes tranformar esa carpeta en la carpeta de videos del sistema o simplemente mover tus videos y peliculas que quieras adentro de la carpeta **videos**
 
+
+## Usar enlace simbolicos
+
+En caso de que quieras mostrar los videos de tu carpeta principal de videos puedes usar los enlaces simbolicos asi no mueves o copias videos
+
+### windows 
+**Recordar ejecutar como administrador en la cmd o powershell**
+
+``mklink /J "static\videos" "[carpeta video]"``
+
+### linux
+`ln -s [capreta video] static/video`
+
+
 ## privacidad
 
 para esta se debe crear una carpeta con el nombre `videosPrivados` 

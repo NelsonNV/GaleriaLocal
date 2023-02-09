@@ -2,3 +2,17 @@
 .image.is-16by9{
 padding-top:0%;
 }
+.grid-item {
+    width: 33.33%;
+    max-width: 500px; 
+    max-height: 500px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 370px;
+    }
+
+img, video{
+    border-radius: inherit;
+}
